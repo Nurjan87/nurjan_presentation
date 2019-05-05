@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-west-1"
+}
+
 resource "aws_instance" "web" {
   ami                         = ami-0019ef04ac50be30f
   instance_type               = t2.micro
@@ -7,3 +11,4 @@ resource "aws_instance" "web" {
   associate_public_ip_address = "true"
   
   user_data = "${file("userdata.sh")}"
+}
